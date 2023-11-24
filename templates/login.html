@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"],
+        .forgot-password-button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"],
+        .forgot-password-button {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover,
+        .forgot-password-button:hover {
+            background-color: #45a049;
+        }
+
+        .footer-text {
+            color: #888;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .signup-link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .signup-link:hover {
+            text-decoration: underline;
+        }
+
+    /* New styles for notification */
+        .notification {
+            display: none;
+            padding: 10px;
+            background-color: #f2f2f2;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function showNotification() {
+            const notification = document.querySelector('.notification');
+            notification.style.display = 'block';
+            setTimeout(() => {
+                notification.style.display = 'none';
+                window.location.href = '/login'; // Redirect back to login after 3 seconds
+            }, 3000); // Show notification for 3 seconds
+        }
+    </script>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="/login" method="POST">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br><br>
+            <input type="submit" value="Login">
+        </form>
+<!-- Forgot Password button -->
+<button class="forgot-password-button" onclick="showNotification()">Forgot Password?</button>
+<!-- Notification for password reset -->
+<p class="notification">An email has been sent to your registered email address.</p>
+<p class="footer-text">
+            Sample Username: testuser | Sample Password: testpassword
+            <br>
+            Don't have an account? <a class="signup-link" href="/signup">Sign up here</a>
+        </p>
+    </div>
+</body>
+
+</html>

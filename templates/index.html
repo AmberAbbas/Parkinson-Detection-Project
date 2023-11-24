@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Parkinson's Disease Detection</title>
+  <style>
+body {
+  background-image: url('https://images.unsplash.com/photo-1585421514738-01798e348b17?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+  font-family: Montserrat, sans-serif;
+}
+
+
+
+.container {
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background to allow the image to shine through */
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  /* Center the container vertically */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+    .container h1 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #212121;
+    }
+
+    .container p {
+      text-align: justify;
+      line-height: 1.5;
+      color: #212121;
+    }
+
+    
+
+    .container a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+      margin-top: 20px;
+    }
+
+    .container a:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Parkinson's Disease Detection</h1>
+    <p>Parkinson's Disease Detection System utilizes machine learning algorithms, particularly XGBoost, to analyze voice and acoustic features. By leveraging these features, the system assists in the diagnosis and early detection of Parkinson's disease.</p>
+    <p>The dataset includes various voice measures such as MDVP (Multidimensional Voice Program) parameters like frequency variations, jitter, shimmer, and noise-to-harmonic ratio (NHR), among others. These features play a vital role in determining the presence or absence of Parkinson's disease.</p>
+    <p>Through the input of these acoustic parameters, the system applies a predictive model to classify whether an individual might have Parkinson's disease based on the provided voice data.</p>
+    <a href="/login">Login</a>
+  </div>
+</body>
+</html>

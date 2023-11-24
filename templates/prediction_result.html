@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1585421514738-01798e348b17?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            font-family: Montserrat, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* Added relative positioning */
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.5); /* Reduced intensity of white overlay */
+            filter: blur(3px); /* Apply blur effect */
+        }
+
+        .result-box,
+        .gratitude-box {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%; /* Adjusted width */
+            max-width: 500px; /* Added max-width */
+            position: relative; /* Added relative positioning */
+            z-index: 1; /* Ensure boxes are above the overlay */
+            margin-bottom: 20px; /* Add margin between the boxes */
+        }
+
+        .result-box h1 {
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .result-box p,
+        .gratitude-box p {
+            font-size: 18px;
+        }
+
+        .call-doctor-button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .call-doctor-button:hover {
+            background-color: #45a049;
+        }
+
+        .gratitude-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .gratitude-message {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overlay"></div>
+
+    <div class="result-box">
+        <h1>Prediction Result</h1>
+        <p>The prediction result is: {{ result }}</p>
+        {% if result == "Parkinson's Disease Present" %}
+            <button onclick="location.href='https://www.practo.com/search/doctors?results_type=doctor&q=%5B%7B%22word%22%3A%22parkinson%27s%20disease%20treatment%22%2C%22autocompleted%22%3Atrue%2C%22category%22%3A%22service%22%7D%5D&city=Chandigarh'" class="call-doctor-button">Call a doctor ☎️</button>
+        {% endif %}
+    </div>
+
+    <!-- New gratitude box -->
+    <div class="gratitude-box">
+        <img class="gratitude-img" src="https://csed.thapar.edu/files/microfaculty/21/166176849816617684981509.jpg" alt="Dr. Nitigya Sambyal">
+        <p class="gratitude-message">A heartfelt thank you to Dr. Nitigya Sambyal, Assistant Professor, Computer Science and Engineering Department, for her invaluable guidance and support throughout this project.</p>
+    </div>
+</body>
+
+</html>

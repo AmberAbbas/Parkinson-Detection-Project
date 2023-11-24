@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Data Collection</title>
+
+
+    <style>
+        body {
+            font-family: Montserrat, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0; /* Reset default margin */
+        }
+
+        body {
+            /* Set background image for the entire body */
+            background-image: url('https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Replace with your image file name */
+            background-size: cover;
+            background-attachment: fixed; /* Keep the background fixed while scrolling */
+            font-family: Montserrat, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .data-form {
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 60%;
+            margin: 50px auto;
+            max-width: 800px;
+            background-color: rgba(0, 0, 0, 0.8); /* Set black background */
+            color: white; /* Set text color to white */
+        }
+
+        .data-form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-align: left; /* Align labels to the left */
+        }
+
+        .tooltip {
+            position: relative;
+        }
+
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 180px; /* Increase width for better readability */
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            top: 100%;
+            left: 50%;
+            margin-left: -90px; /* Adjust left margin */
+            transform: translateX(-50%) translateY(-10px);
+        }
+
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+        }
+
+        .data-form input[type="text"],
+        .data-form input[type="number"] {
+            width: calc(100% - 18px); /* Adjust input width to account for padding and borders */
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            color: black; /* Set input text color to black */
+        }
+
+        .data-form input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 150px;
+        }
+
+        .data-form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+    
+</head>
+
+<body>
+    <div class="data-form">
+        <h2>Data Collection</h2>
+
+        <form id="data-form" method="POST" action="/data_collection">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <div class="tooltip">
+                <label for="mdvp_fo">MDVP:Fo(Hz):</label>
+                <input type="text" id="mdvp_fo" name="mdvp_fo" required>
+                <span class="tooltip-text">Measures the average fundamental frequency of the voice</span>
+            </div><br><br>
+
+            <div class="tooltip">
+                <label for="mdvp_fhi">MDVP:Fhi(Hz):</label>
+                <input type="text" id="mdvp_fhi" name="mdvp_fhi" required>
+                <span class="tooltip-text">Measures the maximum fundamental frequency of the voice</span>
+            </div><br><br>
+
+            <div class="tooltip">
+                <label for="mdvp_flo">MDVP:Flo(Hz):</label>
+                <input type="text" id="mdvp_flo" name="mdvp_flo" required>
+                <span class="tooltip-text">Measures the minimum fundamental frequency of the voice</span>
+            </div><br><br>
+
+            <div class="tooltip">
+                <label for="mdvp_jitter">MDVP:Jitter(%):</label>
+                <input type="text" id="mdvp_jitter" name="mdvp_jitter" required>
+                <span class="tooltip-text">Measures the jitter of the voice, which is the variation in the fundamental frequency</span>
+              </div><br><br>
+        
+              <div class="tooltip">
+                <label for="mdvp_jitter_abs">MDVP:Jitter(Abs):</label>
+                <input type="text" id="mdvp_jitter_abs" name="mdvp_jitter_abs" required>
+                <span class="tooltip-text">Measures the absolute value of jitter, which is the variation in the fundamental frequency of the voice</span>
+              </div><br><br>
+        
+              <div class="tooltip">
+                <label for="mdvp_rap">MDVP:RAP:</label>
+                <input type="text" id="mdvp_rap" name="mdvp_rap" required>
+                <span class="tooltip-text">Measures the relative amplitude perturbation of the voice</span>
+              </div><br><br>
+        
+              <div class="tooltip">
+                <label for="mdvp_ppq">MDVP:PPQ:</label>
+                <input type="text" id="mdvp_ppq" name="mdvp_ppq" required>
+                <span class="tooltip-text">Measures the percentage of periods where the pitch deviates from the mean by more than one standard deviation</span>
+              </div><br><br>
+        
+              <div class="tooltip">
+                <label for="jitter_ddp">Jitter:DDP:</label>
+                <input type="text" id="jitter_ddp" name="jitter_ddp" required>
+                <span class="tooltip-text">Measures the difference between the jitter values measured by the MDVP and the jitter values measured by the HNR</span>
+              </div><br><br>
+        
+              <div class="tooltip">
+                <label for="mdvp_shimmer">MDVP:Shimmer:</label>
+                <input type="text" id="mdvp_shimmer" name="mdvp_shimmer" required>
+                <span class="tooltip-text">Measures the shimmer of the voice, which is the variation in the amplitude of the voice</span>
+              </div><br><br>
+        
+              <div class="tooltip">
+                <label for="mdvp_shimmer_db">MDVP:Shimmer(dB):</label>
+                <input type="text" id="mdvp_shimmer_db" name="mdvp_shimmer_db" required>
+                <span class="tooltip-text">Measures the shimmer of the voice in decibels, which is the variation in the amplitude of the voice relative to the dB value of the voice</span>
+              </div><br><br>
+
+              <div class="tooltip">
+                <label for="shimmer_apq3">Shimmer:APQ3:</label>
+                <input type="text" id="shimmer_apq3" name="shimmer_apq3" required>
+                <span class="tooltip-text">Measures the shimmer of the voice using the APQ3 algorithm</span>
+              </div><br><br>
+            
+              <div class="tooltip">
+                <label for="shimmer_apq5">Shimmer:APQ5:</label>
+                <input type="text" id="shimmer_apq5" name="shimmer_apq5" required>
+                <span class="tooltip-text">Measures the shimmer of the voice using the APQ5 algorithm</span>
+              </div><br><br>
+            
+              <div class="tooltip">
+                <label for="mdvp_apq">MDVP:APQ:</label>
+                <input type="text" id="mdvp_apq" name="mdvp_apq" required>
+                <span class="tooltip-text">Measures the overall amount of shimmer in the voice using a combination of the APQ3 and APQ5 algorithms</span>
+              </div><br><br>
+            
+              <div class="tooltip">
+                <label for="shimmer_dda">Shimmer:DDA:</label>
+                <input type="text" id="shimmer_dda" name="shimmer_dda" required>
+                <span class="tooltip-text">Measures the difference between the shimmer values measured by the MDVP and the shimmer values measured by the HNR</span>
+              </div><br><br>
+              
+              <div class="tooltip">
+                <label for="nhr">NHR:</label>
+                <input type="text" id="nhr" name="nhr" required>
+                <span class="tooltip-text">Measures the noise-to-harmonic ratio of the voice, which is a measure of the relative amount of noise and harmonics in the voice</span>
+              </div><br><br>
+
+              <div class="tooltip">
+    <label for="hnr">HNR:</label>
+    <input type="text" id="hnr" name="hnr" required>
+    <span class="tooltip-text">Harmonics-to-Noise Ratio: Measures the ratio of harmonic components to noise in the voice signal.</span>
+</div><br><br>
+
+<div class="tooltip">
+    <label for="status">Status:</label>
+    <input type="text" id="status" name="status" required>
+    <span class="tooltip-text">Parkinson's Disease Status: Indicates the presence (1) or absence (0) of Parkinson's disease.</span>
+</div><br><br>
+
+<div class="tooltip">
+    <label for="rpde">RPDE:</label>
+    <input type="text" id="rpde" name="rpde" required>
+    <span class="tooltip-text">Recurrence Period Density Entropy: A measure of the complexity of the speech signal.</span>
+</div><br><br>
+
+<div class="tooltip">
+    <label for="dfa">DFA:</label>
+    <input type="text" id="dfa" name="dfa" required>
+    <span class="tooltip-text">Detrended Fluctuation Analysis: Evaluates fractal scaling properties in voice signals.</span>
+</div><br><br>
+
+<div class="tooltip">
+    <label for="spread1">Spread1:</label>
+    <input type="text" id="spread1" name="spread1" required>
+    <span class="tooltip-text">Nonlinear measure used in the calculation of vocal folds dynamics.</span>
+</div><br><br>
+
+<div class="tooltip">
+    <label for="spread2">Spread2:</label>
+    <input type="text" id="spread2" name="spread2" required>
+    <span class="tooltip-text">Nonlinear measure used in the calculation of vocal folds dynamics.</span>
+</div><br><br>
+
+<div class="tooltip">
+    <label for="d2">D2:</label>
+    <input type="text" id="d2" name="d2" required>
+    <span class="tooltip-text">Nonlinear measure used in the calculation of vocal folds dynamics.</span>
+</div><br><br>
+
+<div class="tooltip">
+    <label for="ppe">PPE:</label>
+    <input type="text" id="ppe" name="ppe" required>
+    <span class="tooltip-text">Pitch Period Entropy: Measures variability in the fundamental frequency.</span>
+</div><br><br>
+
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+</body>
+
+</html>
